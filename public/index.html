@@ -1,29 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter! - Home Page</title>
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-  </head>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
-    </nav>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
 
-    <!-- Page-specific (main) content here -->
-    <main class="container"></main>
-  </body>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/scripts/composer-char-counter.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav class="nav-bar">
+    <span id="logo">tweeter</span>
+    <div>
+      <span class="write">Write a new tweet</span>
+      <span class="arrow" style="color: red"><i class="fa-solid fa-angles-down"></i></span>
+    </div>
+  </nav>
+
+  <header id="header">
+    <div>
+      <img src="/images/profile-hex.png">
+    </div>
+    <br>
+    <div>
+      <h2>John S.</h2>
+    </div>
+  </header>
+
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form class="new-tweet-form" action="/tweets" method="POST">
+        <label class="message" for="tweet-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-text"></textarea>
+        <div class="buttons">
+          <button class="tweet-click" type="submit">Tweet</button>
+          <output id="count" name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>
+    <section class="all-tweets">
+      <article class="tweet">
+        <header>
+          <div class="avatarName">
+            <span class="avatar"><i class="fa-solid fa-user-astronaut"></i></span>
+            <span>Skyler Voyager</span>
+          </div>
+          <span class="handle">@StarGazer</span>
+        </header>
+        <label class="tweeted" for="tweetInfo">I can't wait to visit the moon!</label>
+        <footer class="date-time">
+          <div class="bottom-tweet">
+            <div>
+              <time datetime="2022-08-11 18:00"> August 16th</time>
+            </div>
+            <div class="emojis">
+              <div class="flag"><i class="fa-solid fa-flag"></i></div>
+              <div class="retweet"><i class="fa-solid fa-retweet"></i></div>
+              <div class="heart"><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </section>
+  </main>
+</body>
+
 </html>
