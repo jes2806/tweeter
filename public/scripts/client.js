@@ -4,8 +4,15 @@ $(document).ready(() => {
 
   $('#tweet-form').submit(function(event) {
     event.preventDefault();
-    $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { })
-  })
+    const tweetValue = $('#tweet-text').val();
+    if (tweetValue === null || tweetValue === "") {
+      alert('You must tweet something to submit!');
+    } else if (tweetValue.length > 140) {
+      alert('Your tweet exceeds the maximum characters allowed!');
+    } else {
+      $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { })
+    };
+  });
 
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' }).then((result) => renderTweets(result));
