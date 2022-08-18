@@ -1,11 +1,18 @@
 .all-tweets {
-  border: 3px solid black;
-  width: 50%;
+  width: 90%;
+  padding: 3%;
 }
 
-article.tweet header {
+.all-tweets article {
+  border: 3px solid black;
+  margin-bottom: 3em;
+}
+
+.all-tweets header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 15px;
   padding-bottom: 30px;
 }
 
@@ -15,9 +22,10 @@ article.tweet header {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  padding: 15px;
 }
 
-article.tweet footer {
+.all-tweets footer {
   display: flex;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
@@ -32,6 +40,7 @@ article.tweet footer {
   flex-direction: row;
   margin-top: 15px;
   width: 100%;
+  padding: 10px;
 }
 
 article.tweet {
@@ -64,6 +73,6 @@ article.tweet {
   color: orange;
 }
 
-.all-tweets:hover {
+.all-tweets article:hover {
   box-shadow: 5px 10px rgb(93, 93, 229);
 }
