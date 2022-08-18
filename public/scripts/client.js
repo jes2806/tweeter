@@ -3,14 +3,14 @@
 $(document).ready(() => {
 
   $('#tweet-form').submit(function(event) {
-    event.preventDefault();
     const tweetValue = $('#tweet-text').val();
+    event.preventDefault();
     if (tweetValue === null || tweetValue === "") {
       alert('You must tweet something to submit!');
     } else if (tweetValue.length > 140) {
       alert('Your tweet exceeds the maximum characters allowed!');
     } else {
-      $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { })
+      $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { loadTweets() })
     };
   });
 
@@ -20,14 +20,21 @@ $(document).ready(() => {
   loadTweets();
 });
 
+const escaper = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const renderTweets = function(tweets) {
   let container = $(".all-tweets");
-  container.html("");
+  container.text("");
   for (const tweet of tweets) {
     container.prepend(createTweetElement(tweet));
   };
 };
+
+
 
 const createTweetElement = function(tweet) {
   const ago = timeago.format(tweet.created_at);
@@ -40,7 +47,7 @@ const createTweetElement = function(tweet) {
     </div>
     <span class="handle">${tweet.user.handle}</span>
   </header>
-  <label class="tweeted" for="tweetInfo">${(tweet.content.text)}</label>
+  <label class="tweeted" for="tweetInfo">${escaper(tweet.content.text)}</label>
   <footer class="date-time">
     <div class="bottom-tweet">
       <div class tweet-ago>
