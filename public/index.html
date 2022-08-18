@@ -66,6 +66,12 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form class="new-tweet-form" id="tweet-form">
+        <div class="errors">
+          <span class="error-empty"><i class="fa-solid fa-triangle-exclamation"></i>Your tweet cannot be empty!<i
+              class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="error-exceeds"><i class="fa-solid fa-triangle-exclamation"></i>You have exceeded the maximum
+            allowed characters!<i class="fa-solid fa-triangle-exclamation"></i></span>
+        </div>
         <label class="message" for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="buttons">

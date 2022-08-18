@@ -6,9 +6,11 @@ $(document).ready(() => {
     const tweetValue = $('#tweet-text').val();
     event.preventDefault();
     if (tweetValue === null || tweetValue === "") {
-      alert('You must tweet something to submit!');
+      $(".error-empty").slideDown("slow");
+      $(".error-exceeds").hide();
     } else if (tweetValue.length > 140) {
-      alert('Your tweet exceeds the maximum characters allowed!');
+      $(".error-exceeds").slideDown("slow");
+      $(".error-empty").hide();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { loadTweets() })
     };

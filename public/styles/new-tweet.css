@@ -37,4 +37,18 @@ textarea {
 
 .over {
   color: red;
-};
+}
+
+.errors {
+  display: flex;
+  justify-content: center;
+}
+
+.error-empty, .error-exceeds {
+  color: red;
+  font-weight: 550;
+  display: none;
+  float: left;
+  border: 3px solid red;
+  padding: 10px;
+}
