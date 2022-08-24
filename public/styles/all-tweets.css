@@ -23,6 +23,7 @@
   font-weight: bold;
   margin-bottom: 20px;
   padding: 15px;
+  word-wrap: break-word;
 }
 
 .all-tweets footer {

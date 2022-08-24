@@ -1,5 +1,3 @@
-
-
 $(document).ready(() => {
 
   $('#tweet-form').submit(function(event) {
@@ -7,13 +5,21 @@ $(document).ready(() => {
     event.preventDefault();
     if (tweetValue === null || tweetValue === "") {
       $(".error-empty").slideDown("slow");
+      setTimeout(() => {
+        $(".error-empty").slideUp();
+      }, "2000")
       $(".error-exceeds").hide();
     } else if (tweetValue.length > 140) {
       $(".error-exceeds").slideDown("slow");
+      setTimeout(() => {
+        $(".error-exceeds").slideUp();
+      }, "2000")
       $(".error-empty").hide();
     } else {
       $.ajax('/tweets', { method: 'POST', data: $('#tweet-form').serialize() }).then(function() { loadTweets() })
     };
+    $('.new-tweet-form')[0].reset();
+    $('#count').val(140);
   });
 
   const loadTweets = function() {
@@ -22,7 +28,7 @@ $(document).ready(() => {
   loadTweets();
 });
 
-const escaper = function (str) {
+const escaper = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -65,3 +71,5 @@ const createTweetElement = function(tweet) {
 </article>`;
   return $tweet;
 };
+
+// orrect to hereeee
